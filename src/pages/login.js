@@ -11,7 +11,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-    await axios.post('https://chat-app-production-5f7e.up.railway.app/api/auth/login'
+      const res = await axios.post('https://chat-app-production-5f7e.up.railway.app/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/chat');
     } catch (err) {
