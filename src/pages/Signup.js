@@ -12,7 +12,7 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-    const socket = io('https://chat-app-production-5f7e.up.railway.app');
+      const res = await axios.post('https://chat-app-production-5f7e.up.railway.app/api/auth/signup', { name, email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/chat');
     } catch (err) {
